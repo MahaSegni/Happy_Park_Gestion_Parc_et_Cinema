@@ -1,0 +1,38 @@
+
+<table border="2">
+<div class="chit-chat-heading">liste conges</div>
+    <tr>
+        <td>reference conge</td>
+        <td>date conge</td>
+        <td>motif conge</td>
+        <td>nombre jours conge</td>
+        <td>id employe correspondant</td>
+
+
+    </tr>
+
+
+    {% for x in listconge %}
+
+        <tr>
+
+
+            <td> {{x.idconge}}</td>
+            <td> {{x.dateconge|date('Y-m-d')}}</td>
+            <td> {{x.motifconge}}</td>
+            <td> {{x.nbjourconge}}</td>
+            <td> {{x.employe}}</td>
+
+
+
+
+
+        </tr>
+
+    {% endfor %}
+
+</table>
+
+
+
+

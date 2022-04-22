@@ -1,0 +1,56 @@
+{% extends 'reclamation1.html.twig' %}
+{% block title %}
+    <div align="right">
+        <form method="post" action="{{ path ('recherchecinema') }}"  align="left">
+            <label style="color: black">Rechercher</label>
+            <input type="text" name="search" style="background-color: #6f42c1"><input type="submit"  style=" background-color : #6f42c1" value="Recherche" class="btn btn-default">
+        </form> <form method="post" action="{{ path('recherche_film_date') }}" align="right">
+            <input type="submit" value="Par Date "  style=" background-color : #6f42c1" class="btn btn-default" >
+        </form>
+        <form method="post" id="contactForm" action="{{ path('recherche_cin') }}" id="search_form_1" >
+            <div class="search_item">
+                <div style='align-content: center'>
+                    <div class="col-md-8 col-sm-8">
+                        Date début :
+                        <input type="datetime-local" placeholder="Search1..." required="" name="search1" style=" background-color : #6f42c1"> </br>
+
+                        Date Fin :
+                        <input type="datetime-local" placeholder="Search2..." required="" name="search2" style=" background-color : #6f42c1">
+
+                        <input type="submit" value="rechercher" style=" background-color : #6f42c1" class="btn btn-default" >
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div><br></div>
+
+
+    </div>
+    <table>
+
+        {% for x in liststudent %}
+            <tr><td>
+                    <img src="{{ asset('/images1/' ~ x.film.filename )}}"width="150" height="200">
+                    <br></td></tr>
+            <tr>
+
+                <td style="color: black">salle  {{x.num}}<br>
+                    Nom film : {{ x.film.nomfilm}}<br>
+                    Description : {{ x.film.descriptionf}}<br>
+                    date :  {{ x.date |date('d/m/Y') }}<br>
+                    heure : {{ x.heurep |date('H:i') }}<br>
+
+                    <button style="background-color: #1f0733" class="btn btn-default">   <a href="{{ path('addrese',{'num':x.num}) }}">Réserver</a></button> <br>
+                    <hr noshade  size="3"  width="700">
+                    <br>
+
+                </td>
+
+            </tr>
+
+
+        {% endfor %}
+
+    </table>
+
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends 'baseFront.html.twig' %}
+{% block bodyContainer %}
+
+
+
+    <div class="offers">
+    <div class="container">
+        <div class="row">
+            <div class="search_tabs_container">
+                <div class="search_tabs_container">
+                    <div class="search_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+                        <div class="search_tab active d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="{{ asset('images1/bus.png') }}" alt=""><a  href="{{ path("addResrvation") }}"> <span>Parking</span></a></div>
+                        <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="{{ asset('images1/bus.png') }}" alt=""><a href="{{ path("afficherr") }}"> Film</a></div>
+                        <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="{{ asset('images1/departure.png') }}" alt=""><a href="{{ path("addrec") }}">Reclamation</a></div>
+                        <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="{{ asset('images1/island.png') }}"a alt=""><a href="{{ path("afficherPlatFront") }}">Plat</a></div>
+                        <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="{{ asset('images1/cruise.png') }}" alt=""><a href="{{ path("eventIndex") }}">Evenement</a></div>
+                        <div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="{{ asset('images1/diving.png') }}" alt=""><a href="{{ path("ListTypeAbonnement") }}">Abonnement</a></div>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="col text-center">
+
+                <h2 class="section_title">Menu</h2>
+            </div>
+        </div>
+
+
+        <div class="float-left">
+            <br><br<br><br><br<br><br><br<br><br><br<br>
+            <!--------------------------------------Tri par categorie stats here------------------------------------------->
+            {% for categorie in listcategorie %}
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center" style="color:purple;">
+
+                        <a href="{{ path("TriParategorie",{'idc':categorie.idc}) }}" >
+                            {{ categorie.nomc }}
+                            <!--
+                           <span class="badge badge-primary badge-pill"> 4 </span>
+                            -->
+                        </a>
+                    </li>
+                </ul>
+            {% endfor %}
+            <!--------------------------------------Tri par categorie ends here-------------------------------------------->
+
+            <!----------------------------------Button for All categories stats here--------------------------------------->
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center" style="color:purple;">
+
+                    <a href="{{ path("afficherPlatFront") }}" >
+                        All Categories
+                        <!--
+                       <span class="badge badge-primary badge-pill"> 4 </span>
+                        -->
+                    </a>
+                </li>
+            </ul>
+            <!----------------------------------Button for All categories ends here---------------------------------------->
+        </div>
+
+
+
+
+        <div class="row offers_items">
+            <!------------------------------Affichage des plats starts here---------------------------------------->
+            {% for plat in listplat %}
+                <!-- Offers Item -->
+                <div class="col-lg-6 offers_col">
+                    <div class="offers_item">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="offers_image_container">
+                                    <div class="offers_image_background" ><img src="{{ asset('/images/productImageUploads/' ~ plat.imagep) }}" height="170px" width="200px" ></div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="offers_content">
+
+                                    <div class="offers_price">{{ plat.prixp }}<span>DT</span></div>
+                                    <div class="rating_r rating_r_4 offers_rating">
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                        <i></i>
+                                    </div>
+                                    <div class="offer_name"><a href="#">{{ plat.nomp }}</a></div>
+                                    <p class="offers_text"></p>
+                                    <div class="offers_icons">
+                                        <ul class="offers_icons_list">
+                                            <li class="offers_icons_item"><img src="images/post.png" alt=""></li>
+                                            <li class="offers_icons_item"><img src="images/compass.png" alt=""></li>
+                                            <li class="offers_icons_item"><img src="images/bicycle.png" alt=""></li>
+                                            <li class="offers_icons_item"><img src="images/sailboat.png" alt=""></li>
+                                        </ul>
+                                    </div>
+
+
+                                    <a href="{{ path('showFront',{'idp':plat.idp}) }}">read more</a>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div><br><br>
+                </div>
+            {% endfor %}
+            <!--------------------------------Affichage des plats ends here---------------------------------------->
+        </div>
+    </div>
+
+
+
+{% endblock  %}

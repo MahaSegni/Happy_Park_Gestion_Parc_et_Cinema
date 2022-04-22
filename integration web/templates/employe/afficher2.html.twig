@@ -1,0 +1,33 @@
+
+
+<table border="2">
+<div class="chit-chat-heading">liste des employes</div>
+    <tr>
+        <td>reference employe</td>
+        <td>nom employe</td>
+        <td>prenom employe</td>
+        <td>numero telephone employe</td>
+        <td>adresse mail employe</td>
+        <td>sa reference conge</td>
+
+    </tr>
+
+
+
+    {% for x in listemploye %}
+
+        <tr>
+
+            <td>{{x.idemp}}</a></td>
+            <td> {{x.nomemp}}</td>
+            <td> {{x.prenomemp}}</td>
+            <td> {{x.numtelemp}}</td>
+            <td> {{x.adresseemp}}</td>
+           <td>{{ x.conges |join  }} </td>
+
+
+
+        </tr>
+
+    {% endfor %}
+</table>

@@ -1,0 +1,65 @@
+security:
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+
+        App\Entity\Abonne:
+            algorithm: bcrypt
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+        in_database:
+            entity:
+                class: App\Entity\Abonne
+                property: mailabonne
+
+        chain_provider:
+            chain:
+                providers: [ 'app_user_provider', 'in_database' ]
+
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images1|js)/
+            security: false
+
+
+        main:
+            anonymous: true
+            provider: in_database
+            form_login:
+                login_path: security_login
+                check_path: security_login
+                target_path_parameter: abonne
+
+            logout:
+                path: security_logout
+                target: abonne
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        #  - { path: ^/admin, roles: ROLE_ADMIN }
+        #  - { path: ^/*, roles: ROLE_USER }
+        - {path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
+
+knp_snappy:
+    pdf:
+        enabled: true
+        binary: "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options: [ ]
+    image:
+        enabled: true
+        binary: "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\""
+        options: [ ]

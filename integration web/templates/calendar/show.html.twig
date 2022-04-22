@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<title>Calendar</title>
+
+{% block body %}
+    <h1>Calendar</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Title</th>
+                <td>{{ calendar.title }}</td>
+            </tr>
+            <tr>
+                <th>Start</th>
+                <td>{{ calendar.start ? calendar.start|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>End</th>
+                <td>{{ calendar.end ? calendar.end|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>BackgroundColor</th>
+                <td>{{ calendar.backgroundColor }}</td>
+            </tr>
+            <tr>
+                <th>BorderColor</th>
+                <td>{{ calendar.borderColor }}</td>
+            </tr>
+            <tr>
+                <th>TextColor</th>
+                <td>{{ calendar.textColor }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('calendar_index') }}">back to list</a>
+
+    <a href="{{ path('calendar_edit', {'title': calendar.title}) }}">edit</a>
+
+{% endblock %}

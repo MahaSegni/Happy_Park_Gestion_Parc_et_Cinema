@@ -1,0 +1,45 @@
+{% extends 'baserec.html.twig' %}
+{% block t %}
+  <div class="inner-block">
+                <!--market updates updates-->
+                <div class="market-updates">
+
+                    <div class="market-update-block clr-block-1"  >
+                        <div class="col-md-8 market-update-left" >
+
+                            <div class="work-progres"  >
+
+                                <div class="table-responsive">
+
+
+
+                                                    <div class="work-progres">
+                                                        <div class="chit-chat-heading">
+                                                            formulaire d'ajout des equipements
+                                                        </div>
+                                                        <div class="table-responsive" style="width:300px">
+                                                            <table class="table table-hover">
+                                                                 {{ form(formE) }}
+                                                            </table>
+                                                        </div>
+                                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="clearfix"> </div>
+                    </div>
+
+                </div>
+                <!--market updates end here-->
+
+
+
+                <div class="clearfix"> </div>
+
+        </div>
+{% endblock %}

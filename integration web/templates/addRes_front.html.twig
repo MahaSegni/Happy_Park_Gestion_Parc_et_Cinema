@@ -1,0 +1,90 @@
+{% extends 'Reservation.html.twig' %}
+{% block title %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Reclamation</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Travelix Project">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="{{ asset('styles1/bootstrap4/bootstrap.min.css') }}">
+        <link href="{{ asset('plugins1/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="{{ asset('styles1/contact_styles.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('styles1/contact_responsive.css') }}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    </head>
+
+    <body>
+
+    <div class="super_container">
+
+
+        <div class="contact_form_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+
+                        <!-- Contact Form -->
+                        <div  class="contact_form_container"  >
+
+                            <div class="contact_title text-center">Reservation Parking</div>
+                            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                            <div>matricule</div>
+                            {{ form_widget(form.matricule, {'attr': {'class': 'form-control'}}) }}
+                            <div>date d'entrée</div>
+                            {{ form_widget(form.dated, {'attr': {'class': 'form-control'}}) }}
+                            <div>date de sortie</div>
+                            {{ form_widget(form.datef, {'attr': {'class': 'form-control'}}) }}
+                            <div>place à réserver</div>
+                            {{ form_widget(form.idCell, {'attr': {'class': 'form-control'}}) }}
+
+                            <br>
+
+
+                            <button type="submit" id="form_submit_button" class="form_submit_button button trans_200" >submit<span></span><span></span><span></span></button>
+
+                            {{ form_end(form) }}
+                            <br><br>
+
+
+
+
+
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <script src="{{ asset('js1/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('styles1/bootstrap4/popper.js') }}"></script>
+    <script src="{{ asset('styles1/bootstrap4/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('styles1/bootstrap4/bootstrap.min.js') }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+    <script src="{{ asset('js1/contact_custom.js') }}"></script>
+
+
+    </body>
+
+    </html>
+
+{% endblock %}

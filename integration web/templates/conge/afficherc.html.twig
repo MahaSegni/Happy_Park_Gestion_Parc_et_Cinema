@@ -1,0 +1,44 @@
+{% extends 'base4.html.twig' %}
+{% block body %}
+<table border="2">
+<div class="chit-chat-heading">liste conges</div>
+    <tr>
+
+        <td>date conge</td>
+        <td>motif conge</td>
+        <td>nombre jours conge</td>
+        <td>id employe correspondant</td>
+
+
+    </tr>
+    <form method="post" action="{{ path ('tricon') }}">
+        <label>trier par date</label>
+       <input type="submit" value="tri">
+    </form>
+    {% for x in listconge %}
+
+        <tr>
+
+
+
+            <td> {{x.dateconge|date('Y-m-d')}}</td>
+            <td> {{x.motifconge}}</td>
+            <td> {{x.nbjourconge}}</td>
+            <td> {{x.employe}}</td>
+
+
+            <td> <a href="{{ path('updateConge',{'idconge':x.idconge}) }}">Update conge</a></td>
+            <td> <a href="{{ path('deletec',{'idconge':x.idconge}) }}">Delete conge</a></td>
+
+        </tr>
+
+    {% endfor %}
+
+</table>
+ <form method="post" action="{{ path ('contact') }}">
+            <label>envoyer un mail de reclamation a l'administrateur</label>
+           <input type="submit" value="contacter l'administrateur">
+        </form>
+{% endblock  %}
+
+

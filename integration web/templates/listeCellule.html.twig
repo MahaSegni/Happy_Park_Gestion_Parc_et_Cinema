@@ -1,0 +1,36 @@
+{% extends 'listeReservation.html.twig' %}
+
+                            {% block title %}
+
+                                        <h1> Liste des cellules</h1>
+
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>Cellule</th>
+                                                <th>Disponibilité</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for x in liste %}
+                                                <tr>
+                                                    <td> {{ x.idcellule}}</td>
+                                                    <td> {% if x.dispo ==0 %}
+                                                            Full
+                                                        {% else %}
+                                                            Empty
+                                                        {% endif %}
+                                                    </td>
+                                                </tr>
+
+
+
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+
+                                <form method="post" action="{{ path("addCellule")}}">
+                                    <button class="btn btn-success">ajouter nouvelle cellule</button>
+                                </form>
+                                        {% endblock %}

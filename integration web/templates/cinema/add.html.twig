@@ -1,0 +1,36 @@
+{% extends 'baseb1.html.twig' %}
+{% block title %}
+
+    <div class="section-title">
+
+        <h2>Ajouter une salle de cinema</h2>
+        <table>
+            {{ form_start(formCinema,{'attr':{'novalidate' : 'novalidate'}}) }}
+            <tr><div>
+                    <td>{{ form_label(formCinema.date) }}</td>
+                    <td>{{ form_errors(formCinema.date) }}
+                        {{ form_widget(formCinema.date) }}</td>
+                </div></tr>
+            <tr><div>
+                    <td>{{ form_label(formCinema.heure_p) }}</td>
+                    <td>{{ form_errors(formCinema.heure_p) }}
+                        {{ form_widget(formCinema.heure_p) }}</td>
+                </div></tr>
+            <tr> <div>
+                    <td>{{ form_label(formCinema.film,'Film') }}</td>
+                    <td>{{ form_errors(formCinema.film) }}
+                        {{ form_widget(formCinema.film) }}</td>
+                </div></tr>
+            <tr><div>
+                    <td> {{ form_label(formCinema.nbr,'nombre de places disponibles') }}</td>
+                    <td>{{ form_errors(formCinema.nbr ) }}
+                        {{ form_widget(formCinema.nbr) }}</td>
+                </div></tr>
+            <tr> <div>
+
+                    <td>
+                        {{ form_widget(formCinema['Enregistrer']) }}</td>
+                </div></tr>
+            {{ form_end(formCinema) }} </table>
+    </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base3.html.twig' %}
+{% block title %}
+    <div class="card-block table-border-style">
+    <div class="table-responsive">
+    <table class="table table-hover">
+<div class="chit-chat-heading">liste des employes</div>
+    <tr>
+        <td>reference employe</td>
+        <td>nom employe</td>
+        <td>prenom employe</td>
+        <td>numero telephone employe</td>
+        <td>adresse mail employe</td>
+        <td>sa reference conge</td>
+
+    </tr>
+    <form method="post" action="{{ path ('searchemp') }}">
+        <label>Rechercher conge par id conge</label>
+        <input type="text" name="search" class="form-control" style="width: 25%"><input type="submit" value="Recherche"  class="btn btn-success">
+    </form>
+
+
+    {% for x in listemploye %}
+
+        <tr>
+
+            <td>{{x.idemp}}</a></td>
+            <td> {{x.nomemp}}</td>
+            <td> {{x.prenomemp}}</td>
+            <td> {{x.numtelemp}}</td>
+            <td> {{x.adresseemp}}</td>
+           <td>{{ x.conges |join  }} </td>
+
+
+            <td> <a href="{{ path('updateEmploye',{'idemp':x.idemp}) }}"><i class="fa fa-edit" style="font-size:18px"></i>Update employe</a></td>
+            <td> <a href="{{ path('deleteem',{'idemp':x.idemp}) }}"><i class="fa fa-trash" style="font-size:18px"></i>Delete employe</a></td>
+        </tr>
+
+    {% endfor %}
+    </table></div></div>
+{% endblock  %}

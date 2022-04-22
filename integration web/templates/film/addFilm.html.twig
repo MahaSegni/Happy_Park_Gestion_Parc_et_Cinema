@@ -1,0 +1,43 @@
+{% extends 'film_base1.html.twig' %}
+{% block title %}
+
+
+    <div class="section-title">
+        <h2>Ajouter un film </h2>
+        <table>
+            {{ form_start(formFilm,{'attr':{'novalidate' : 'novalidate'}}) }}
+            <tr><div>
+                    <td>{{ form_label(formFilm.nomFilm,'Film ') }}</td>
+                    <td>{{ form_errors(formFilm.nomFilm) }}
+                        {{ form_widget(formFilm.nomFilm) }}</td>
+                </div></tr>
+            <tr><div>
+                    <td>{{ form_label(formFilm.descriptionf,'Description') }}</td>
+                    <td>{{ form_errors(formFilm.descriptionf) }}
+                        {{ form_widget(formFilm.descriptionf) }}</td>
+                </div></tr>
+            <tr> <div>
+                    <td>{{ form_label(formFilm.filename) }}</td>
+                    <td>{{ form_errors(formFilm.filename) }}
+                        {{ form_widget(formFilm.filename) }}</td>
+                </div></tr>
+            <tr><div>
+                    <td> {{ form_label(formFilm.datesortie) }}</td>
+                    <td>{{ form_errors(formFilm.datesortie) }}
+                        {{ form_widget(formFilm.datesortie) }}</td>
+                </div></tr>
+            <tr> <div>
+                    <td>{{ form_label(formFilm.categorie) }}</td>
+                    <td>{{ form_errors(formFilm.categorie) }}
+                        {{ form_widget(formFilm.categorie) }}</td>
+                </div></tr>
+            <tr> <div>
+
+                    <td>
+                        {{ form_widget(formFilm['Enregistrer']) }}</td>
+                </div></tr>
+            {{ form_end(formFilm) }} </table>
+
+    </div>
+
+{% endblock %}

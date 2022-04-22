@@ -1,0 +1,40 @@
+{% extends 'listeCellule.html.twig' %}
+
+
+{% block title %}
+
+    <h1>Create new Calendar</h1>
+    <form  action="" method="post" id="contactForm" novalidate="novalidate" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+        <div class="search_item">
+            <div style='align-content: center'>
+            <div class="col-md-8 col-sm-8">
+                {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+                <div>title</div>
+
+                {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                <div>start</div>
+                {{ form_widget(form.start, {'attr': {'class': 'form-control'}}) }}
+                <div>end</div>
+                {{ form_widget(form.end, {'attr': {'class': 'form-control'}}) }}
+                <div>description</div>
+                {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                <div>Background Color</div>
+                {{ form_widget(form.background_color, {'attr': {'class': 'form-control'}}) }}
+                <div>Border Color</div>
+                {{ form_widget(form.border_color, {'attr': {'class': 'form-control'}}) }}
+                <div>Text Color</div>
+                {{ form_widget(form.text_color, {'attr': {'class': 'form-control'}}) }}
+
+                <button type="submit" class="btn btn-success">Create</button>
+                <button type="submit" class="btn btn-success"><a href="{{ path('calendar_index') }}">back to list</a></button>
+
+                {{ form_end(form) }}
+            </div>
+            </div>
+        </div>
+    </form>
+
+
+
+
+{% endblock %}

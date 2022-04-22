@@ -1,0 +1,14 @@
+{% block body %}
+
+    <title>Reservation</title>
+
+<h1 align="center">Bienvenue à Happy Park </h1>
+<thread class= "table table-condensed" >
+
+            <h3>Vous avez effectué la réservation d'identifiant {{ reservation.idreservation}} pour la voiture de matricue {{ reservation.matricule }} de {{ reservation.dated |date('d-m-Y')}} au  {{ reservation.datef |date('d-m-Y')}} dans la {{ reservation.idCell }} </h3>
+            <h3>Merci pour votre confiance!</h3>
+
+
+</table>
+{% endblock %}
+
